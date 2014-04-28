@@ -13,6 +13,9 @@ module.exports = (grunt) ->
                     'paths': [
                         'css/'
                     ]
+                    use: [
+                        () -> (require 'autoprefixer-stylus')('last 2 versions', 'ie 8')
+                    ]
                 files:
                     'css/style.css': 'css/style.styl'
 
