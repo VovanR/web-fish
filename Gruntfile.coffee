@@ -5,6 +5,8 @@ module.exports = (grunt) ->
 
     require('load-grunt-tasks')(grunt)
 
+    debug = !!grunt.option('debug')
+
     grunt.initConfig
         stylus:
             # Компиляция Stylus в CSS
@@ -15,6 +17,7 @@ module.exports = (grunt) ->
                     ]
                     use: [
                         () -> (require 'autoprefixer-stylus')('last 2 versions', 'ie 8')
+                        debug or (require 'csso-stylus')
                     ]
                 files:
                     'css/style.css': 'css/style.styl'
