@@ -1,6 +1,10 @@
-'use strict';
+# gruntjs.com
 
 module.exports = (grunt) ->
+    'use strict';
+
+    require('load-grunt-tasks')(grunt)
+
     grunt.initConfig
         stylus:
             # Компиляция Stylus в CSS
@@ -19,8 +23,5 @@ module.exports = (grunt) ->
                     'css/*.styl'
                 ]
                 tasks: 'stylus'
-
-    grunt.loadNpmTasks 'grunt-contrib-watch'
-    grunt.loadNpmTasks 'grunt-contrib-stylus'
 
     grunt.registerTask 'default', ['stylus', 'watch']
