@@ -13,20 +13,20 @@ module.exports = (grunt) ->
             compile:
                 options:
                     'paths': [
-                        'css/'
+                        'static/css/'
                     ]
                     use: [
                         () -> (require 'autoprefixer-stylus')('last 2 versions', 'ie 8')
                         debug or (require 'csso-stylus')
                     ]
                 files:
-                    'css/style.css': 'css/style.styl'
+                    'static/css/style.css': 'static/css/style.styl'
 
         watch:
             # Перекомпиляция стилей при изменении styl-файлов
             stylus:
                 files: [
-                    'css/*.styl'
+                    'static/css/*.styl'
                 ]
                 tasks: 'stylus'
 
