@@ -1,7 +1,7 @@
 # gruntjs.com
 
 module.exports = (grunt) ->
-    'use strict';
+    'use strict'
 
     require('load-grunt-tasks')(grunt)
 
@@ -9,7 +9,6 @@ module.exports = (grunt) ->
 
     grunt.initConfig
         stylus:
-            # Компиляция Stylus в CSS
             compile:
                 options:
                     'paths': [
@@ -22,12 +21,23 @@ module.exports = (grunt) ->
                 files:
                     'static/css/style.css': 'static/css/style.styl'
 
+        jshint:
+            all:
+                src: [
+                    'static/js/**/*.js'
+                ]
+
         watch:
-            # Перекомпиляция стилей при изменении styl-файлов
             stylus:
                 files: [
                     'static/css/*.styl'
                 ]
                 tasks: 'stylus'
 
-    grunt.registerTask 'default', ['stylus', 'watch']
+            jshint:
+                files: [
+                    'static/js/**/*.js'
+                ]
+                tasks: 'newer:jshint:all'
+
+    grunt.registerTask 'default', ['stylus', 'jshint', 'watch']
