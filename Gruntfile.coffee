@@ -26,6 +26,22 @@ module.exports = (grunt) ->
                 src: [
                     'static/js/**/*.js'
                 ]
+                options:
+                    reporter: require('jshint-stylish')
+                    curly: true
+                    eqeqeq: true
+                    freeze: true
+                    latedef: true
+                    newcap: true
+                    nonbsp: true
+                    nonew: true
+                    plusplus: false
+                    quotmark: 'single'
+                    undef: true
+                    browser: true
+                    globals:
+                        jQuery: true
+                        console: true
 
         watch:
             stylus:

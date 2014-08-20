@@ -1,13 +1,14 @@
 {
-    "devDependencies": {
-        "grunt": "^0.4.2",
-        "load-grunt-tasks": "^0.2.1",
-        "grunt-contrib-watch": "^0.5.3",
-        "grunt-newer": "",
-        "grunt-contrib-stylus": "^0.13.2",
-        "autoprefixer-stylus": "^0.0.3",
-        "csso-stylus": "^0.0.3",
-        "grunt-contrib-jshint": "",
-        "bower": "~1.3.5"
-    }
+  "devDependencies": {
+    "bower": "",
+    "grunt": "",
+    "grunt-contrib-jshint": "",
+    "grunt-contrib-watch": "",
+    "grunt-newer": "",
+    "jshint-stylish": "",
+    "load-grunt-tasks": "",
+    "grunt-contrib-stylus": "",
+    "autoprefixer-stylus": "",
+    "csso-stylus": ""
+  }
 }
