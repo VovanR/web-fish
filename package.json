@@ -4,6 +4,7 @@
     "grunt": "",
     "grunt-contrib-jshint": "",
     "grunt-contrib-watch": "",
+    "grunt-jscs": "",
     "grunt-newer": "",
     "jshint-stylish": "",
     "load-grunt-tasks": "",

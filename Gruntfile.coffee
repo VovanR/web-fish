@@ -43,6 +43,12 @@ module.exports = (grunt) ->
                         jQuery: true
                         console: true
 
+        jscs:
+            all:
+                src: [
+                    'static/js/**/*.js'
+                ]
+
         watch:
             stylus:
                 files: [
@@ -56,4 +62,10 @@ module.exports = (grunt) ->
                 ]
                 tasks: 'newer:jshint:all'
 
-    grunt.registerTask 'default', ['stylus', 'jshint', 'watch']
+            jscs:
+                files: [
+                    'static/js/**/*.js'
+                ]
+                tasks: 'newer:jscs:all'
+
+    grunt.registerTask 'default', ['stylus', 'jshint', 'jscs', 'watch']
