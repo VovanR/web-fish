@@ -4,7 +4,8 @@
   "dependencies": {
     "normalize-css": "~3.0.1",
     "underscore": "~1.6.0",
-    "jquery": "~1.9.1"
+    "jquery": "~1.9.1",
+    "html5-boilerplate": "~4.3.0"
   },
   "private": true
 }
