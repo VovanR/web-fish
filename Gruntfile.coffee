@@ -68,4 +68,5 @@ module.exports = (grunt) ->
                 ]
                 tasks: 'newer:jscs:all'
 
-    grunt.registerTask 'default', ['stylus', 'jshint', 'jscs', 'watch']
+    grunt.registerTask 'lint', ['jshint', 'jscs']
+    grunt.registerTask 'default', ['stylus', 'lint', 'watch']

@@ -1,15 +1,17 @@
 {
   "devDependencies": {
+    "autoprefixer-stylus": "",
     "bower": "",
+    "csso-stylus": "",
     "grunt": "",
     "grunt-contrib-jshint": "",
+    "grunt-contrib-stylus": "",
     "grunt-contrib-watch": "",
     "grunt-jscs": "",
     "grunt-newer": "",
+    "jscs": "",
+    "jscs-jsdoc": "",
     "jshint-stylish": "",
-    "load-grunt-tasks": "",
-    "grunt-contrib-stylus": "",
-    "autoprefixer-stylus": "",
-    "csso-stylus": ""
+    "load-grunt-tasks": ""
   }
 }
