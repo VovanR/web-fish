@@ -3,15 +3,12 @@
     "autoprefixer-stylus": "",
     "bower": "",
     "csso-stylus": "",
-    "grunt": "",
-    "grunt-contrib-jshint": "",
-    "grunt-contrib-stylus": "",
-    "grunt-contrib-watch": "",
-    "grunt-jscs": "",
-    "grunt-newer": "",
+    "gulp": "",
+    "gulp-jscs": "",
+    "gulp-jshint": "",
+    "gulp-stylus": "^1.3.3",
     "jscs": "",
     "jscs-jsdoc": "",
-    "jshint-stylish": "",
-    "load-grunt-tasks": ""
+    "jshint-stylish": ""
   }
 }
