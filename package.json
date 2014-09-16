@@ -6,6 +6,7 @@
     "gulp": "",
     "gulp-jscs": "",
     "gulp-jshint": "",
+    "gulp-notify": "",
     "gulp-stylus": "^1.3.3",
     "jscs": "",
     "jscs-jsdoc": "",
