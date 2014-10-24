@@ -13,7 +13,6 @@
   "globals": {
     "jQuery": true,
     "$": true,
-    "gettext": true,
     "define": true,
     "console": true,
     "alert": true,
@@ -21,13 +20,11 @@
     "prompt": true,
     "require": true,
     "requirejs": true,
-    "QUnit": true,
-    "google": true,
-    "L": true,
-    "MQ": true,
-    "videojs": true,
-    "soundManager": true,
-    "RichMarkerPanorama": true,
-    "RichMarkerPosition": true
+    "mocha": true,
+    "mochaPhantomJS": true,
+    "describe": true,
+    "it": true,
+    "beforeEach": true,
+    "afterEach": true
   }
 }
