@@ -18,7 +18,8 @@
     "gulp-stylus": "",
     "jscs": "",
     "jscs-jsdoc": "",
-    "jshint-stylish": ""
+    "jshint-stylish": "",
+    "yargs": ""
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install"

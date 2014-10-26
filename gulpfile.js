@@ -34,7 +34,10 @@ gulp.task('stylus', function () {
         ])
         .pipe(stylus({
             use: [
-                autoprefixer('last 2 versions', 'ie >= 8'),
+                autoprefixer({
+                    browsers: ['last 2 versions', 'ie >= 8'],
+                    cascade: false,
+                }),
                 csso(),
             ],
         }))
