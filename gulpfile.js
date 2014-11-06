@@ -5,8 +5,8 @@ var argv = require('yargs').argv;
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var stylus = require('gulp-stylus');
-var autoprefixer = require('autoprefixer-stylus');
-var csso = require('csso-stylus');
+var autoprefixer = require('gulp-autoprefixer');
+var csso = require('gulp-csso');
 
 // Lint all modules:
 // $ gulp lint
@@ -29,23 +29,20 @@ gulp.task('lint', function () {
 });
 
 gulp.task('stylus', function () {
-    return gulp.src([
+    gulp.src([
             './static/css/style.styl',
         ])
-        .pipe(stylus({
-            use: [
-                autoprefixer({
-                    browsers: ['last 2 versions', 'ie >= 8'],
-                    cascade: false,
-                }),
-                csso(),
-            ],
+        .pipe(stylus())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions', 'ie >= 8'],
+            cascade: false,
         }))
+        .pipe(csso())
         .pipe(gulp.dest('./static/css/'));
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./static/css/*.styl',], ['stylus']);
+    gulp.watch(['./static/css/**/*.styl'], ['stylus']);
 });
 
 gulp.task('default', ['lint']);

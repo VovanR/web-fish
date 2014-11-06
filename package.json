@@ -9,10 +9,10 @@
     "url": "http://vovanr.com/"
   },
   "devDependencies": {
-    "autoprefixer-stylus": "",
     "bower": "",
-    "csso-stylus": "",
     "gulp": "",
+    "gulp-autoprefixer": "",
+    "gulp-csso": "",
     "gulp-jscs": "",
     "gulp-jshint": "",
     "gulp-stylus": "",
