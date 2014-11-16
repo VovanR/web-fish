@@ -16,6 +16,7 @@
     "gulp-csso": "",
     "gulp-jscs": "",
     "gulp-jshint": "",
+    "gulp-requirejs": "",
     "gulp-stylus": "",
     "gulp-uglify": "",
     "jscs": "",

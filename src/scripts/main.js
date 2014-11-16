@@ -1,8 +1,13 @@
-(function () {
+define([
+    'jquery',
+    'lol',
+], function (
+    $,
+    lol
+) {
 
     'use strict';
 
-    var lol = 'lol';
-    console.log(lol);
+    $(document.body).append($('<p />').text('My name is ' + lol));
 
-})();
+});

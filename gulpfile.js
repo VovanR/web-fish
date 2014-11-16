@@ -6,6 +6,7 @@ var connect = require('gulp-connect');
 var argv = require('yargs').argv;
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
+var rjs = require('gulp-requirejs');
 var uglify = require('gulp-uglify');
 
 var stylus = require('gulp-stylus');
@@ -51,12 +52,23 @@ gulp.task('styles', function () {
 });
 
 gulp.task('scripts', function () {
-    gulp.src([
-            './src/scripts/main.js',
-        ])
-        .pipe(uglify())
-        .pipe(gulp.dest('./dist/js/'))
-        .pipe(connect.reload());
+    rjs({
+        baseUrl: 'src/scripts',
+        name: '../../bower_components/almond/almond',
+        include: ['main'],
+        insertRequire: ['main'],
+        // exclude: ['jquery'],
+        out: 'all.js',
+        paths: {
+            jquery: '../../bower_components/jquery/jquery',
+        },
+        shim: {
+        },
+        wrap: true,
+    })
+    .pipe(uglify())
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(connect.reload());
 });
 
 gulp.task('connect', function () {
@@ -73,6 +85,6 @@ gulp.task('watch', function () {
     gulp.watch(['./src/scripts/**/*.js'], ['scripts']);
 });
 
-gulp.task('dist', ['styles', 'lint', 'scripts']);
+gulp.task('build', ['styles', 'lint', 'scripts']);
 
 gulp.task('default', ['connect', 'watch']);
