@@ -1,6 +1,7 @@
 // See: http://gulpjs.com/
 
 var gulp = require('gulp');
+var connect = require('gulp-connect');
 var argv = require('yargs').argv;
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
@@ -28,6 +29,11 @@ gulp.task('lint', function () {
         .pipe(jscs());
 });
 
+gulp.task('html', function () {
+    gulp.src('./static/index.html')
+        .pipe(connect.reload());
+});
+
 gulp.task('stylus', function () {
     gulp.src([
             './static/css/style.styl',
@@ -38,11 +44,21 @@ gulp.task('stylus', function () {
             cascade: false,
         }))
         .pipe(csso())
-        .pipe(gulp.dest('./static/css/'));
+        .pipe(gulp.dest('./static/css/'))
+        .pipe(connect.reload());
+});
+
+gulp.task('connect', function () {
+    connect.server({
+        root: 'static',
+        port: 8000,
+        livereload: true,
+    });
 });
 
 gulp.task('watch', function () {
+    gulp.watch(['./static/index.html'], ['html']);
     gulp.watch(['./static/css/**/*.styl'], ['stylus']);
 });
 
-gulp.task('default', ['lint']);
+gulp.task('default', ['connect', 'watch']);

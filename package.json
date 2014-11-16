@@ -12,6 +12,7 @@
     "bower": "",
     "gulp": "",
     "gulp-autoprefixer": "",
+    "gulp-connect": "",
     "gulp-csso": "",
     "gulp-jscs": "",
     "gulp-jshint": "",
