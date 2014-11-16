@@ -1,0 +1,1 @@
+!function(){"use strict";var o="lol";console.log(o)}();
