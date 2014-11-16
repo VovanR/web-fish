@@ -12,7 +12,6 @@ var csso = require('gulp-csso');
 // Lint all modules:
 // $ gulp lint
 // Lint one module:
-// $ gulp lint --src=foo
 // $ gulp lint --src foo
 gulp.task('lint', function () {
     var src = argv.src;
@@ -20,7 +19,7 @@ gulp.task('lint', function () {
         .src(
             src ||
             [
-                './static/js/**/*.js',
+                './app/js/**/*.js',
                 './gulpfile.js',
             ]
         )
@@ -30,13 +29,13 @@ gulp.task('lint', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src('./static/index.html')
+    gulp.src('./app/*.html')
         .pipe(connect.reload());
 });
 
 gulp.task('stylus', function () {
     gulp.src([
-            './static/css/style.styl',
+            './app/css/style.styl',
         ])
         .pipe(stylus())
         .pipe(autoprefixer({
@@ -44,21 +43,21 @@ gulp.task('stylus', function () {
             cascade: false,
         }))
         .pipe(csso())
-        .pipe(gulp.dest('./static/css/'))
+        .pipe(gulp.dest('./app/css/'))
         .pipe(connect.reload());
 });
 
 gulp.task('connect', function () {
     connect.server({
-        root: 'static',
+        root: 'app',
         port: 8000,
         livereload: true,
     });
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./static/index.html'], ['html']);
-    gulp.watch(['./static/css/**/*.styl'], ['stylus']);
+    gulp.watch(['./app/*.html'], ['html']);
+    gulp.watch(['./app/css/**/*.styl'], ['stylus']);
 });
 
 gulp.task('default', ['connect', 'watch']);

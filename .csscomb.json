@@ -2,7 +2,7 @@
     "exclude": [
         ".git/**",
         "node_modules/**",
-        "static/vendor/**"
+        "bower_components/**"
     ],
     "always-semicolon": true,
     "block-indent": 4,
