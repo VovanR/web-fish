@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var connect = require('gulp-connect');
+var rev = require('gulp-rev-append');
 
 var argv = require('yargs').argv;
 var jshint = require('gulp-jshint');
@@ -71,6 +72,12 @@ gulp.task('scripts', function () {
     .pipe(connect.reload());
 });
 
+gulp.task('rev', function() {
+    gulp.src('./src/index.html')
+        .pipe(rev())
+        .pipe(gulp.dest('./dist/'));
+});
+
 gulp.task('connect', function () {
     connect.server({
         root: 'dist',
@@ -81,10 +88,10 @@ gulp.task('connect', function () {
 
 gulp.task('watch', function () {
     gulp.watch(['./dist/*.html'], ['html']);
-    gulp.watch(['./src/styles/**/*.styl'], ['styles']);
-    gulp.watch(['./src/scripts/**/*.js'], ['scripts']);
+    gulp.watch(['./src/styles/**/*.styl'], ['styles', 'rev']);
+    gulp.watch(['./src/scripts/**/*.js'], ['scripts', 'rev']);
 });
 
 gulp.task('build', ['styles', 'lint', 'scripts']);
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['rev', 'connect', 'watch']);
