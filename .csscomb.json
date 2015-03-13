@@ -3,7 +3,7 @@
         ".git/**",
         "node_modules/**",
         "bower_components/**",
-        "dist/css/**"
+        "build/css/**"
     ],
     "always-semicolon": true,
     "block-indent": 4,

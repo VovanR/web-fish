@@ -1,6 +1,6 @@
 {
   "name": "web-fish",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/VovanR/web-fish",
   "authors": [
     "VovanR <mail@vovanr.com>"
@@ -9,18 +9,19 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "normalize-css": "~3.0.1",
-    "underscore": "~1.6.0",
+    "html5-boilerplate": "~4.3.0",
     "jquery": "~1.9.1",
-    "html5-boilerplate": "~4.3.0"
+    "normalize-css": "~3.0.1",
+    "underscore": "~1.6.0"
   },
   "devDependencies": {
     "almond": "~0.3.0"
   },
   "ignore": [
     "**/.*",
-    "node_modules",
     "bower_components",
+    "node_modules",
+    "src",
     "test",
     "tests"
   ]

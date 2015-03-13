@@ -1,6 +1,6 @@
 {
   "name": "web-fish",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "For new web apps",
   "homepage": "https://github.com/VovanR/web-fish",
   "license": "MIT",
@@ -18,6 +18,7 @@
     "gulp-autoprefixer": "^2.1.0",
     "gulp-connect": "",
     "gulp-csso": "^1.0.0",
+    "gulp-jade": "^1.0.0",
     "gulp-jscs": "",
     "gulp-jshint": "",
     "gulp-requirejs": "",
@@ -27,6 +28,8 @@
     "jscs": "",
     "jscs-jsdoc": "",
     "jshint-stylish": "",
+    "rimraf": "^2.3.2",
+    "run-sequence": "^1.0.2",
     "yargs": ""
   },
   "scripts": {

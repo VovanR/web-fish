@@ -1,8 +1,10 @@
 // See: http://gulpjs.com/
 
 var gulp = require('gulp');
+var rimraf = require('rimraf');
+var runSequence = require('run-sequence');
 var connect = require('gulp-connect');
-var rev = require('gulp-rev-append');
+var jade = require('gulp-jade');
 
 var argv = require('yargs').argv;
 var jshint = require('gulp-jshint');
@@ -33,11 +35,22 @@ gulp.task('lint', function () {
         .pipe(jscs());
 });
 
-gulp.task('html', function () {
-    gulp.src('./dist/*.html')
+// Compile `index` page template
+gulp.task('templates', function() {
+    gulp.src('./src/index.jade')
+        .pipe(jade())
+        .pipe(gulp.dest('./build/'))
         .pipe(connect.reload());
 });
 
+// Copy images
+gulp.task('images', function () {
+    gulp.src('./src/i/**/*.*')
+        .pipe(gulp.dest('./build/i/'))
+        .pipe(connect.reload());
+});
+
+// Compile styles
 gulp.task('styles', function () {
     gulp.src([
             './src/styles/style.styl',
@@ -48,9 +61,11 @@ gulp.task('styles', function () {
             cascade: false,
         }))
         .pipe(csso())
-        .pipe(gulp.dest('./dist/css/'));
+        .pipe(gulp.dest('./build/css/'))
+        .pipe(connect.reload());
 });
 
+// Compile scripts
 gulp.task('scripts', function () {
     rjs({
         baseUrl: 'src/scripts',
@@ -67,29 +82,33 @@ gulp.task('scripts', function () {
         wrap: true,
     })
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./build/js/'))
+    .pipe(connect.reload());
 });
 
-gulp.task('rev', function () {
-    gulp.src('./dist/index.html')
-        .pipe(rev())
-        .pipe(gulp.dest('./dist/'));
-});
-
+// Start development connection `http://localhost:8000`
 gulp.task('connect', function () {
     connect.server({
-        root: 'dist',
+        root: 'build',
         port: 8000,
         livereload: true,
     });
 });
 
-gulp.task('watch', function () {
-    gulp.watch(['./dist/*.html'], ['html']);
-    gulp.watch(['./src/styles/**/*.styl'], ['styles', 'rev']);
-    gulp.watch(['./src/scripts/**/*.js'], ['scripts', 'rev']);
+// Clear compiled code
+gulp.task('clean', function (cb) {
+    rimraf('./build', cb);
 });
 
-gulp.task('build', ['styles', 'lint', 'scripts']);
+gulp.task('watch', function () {
+    gulp.watch(['./src/index.jade'], ['templates']);
+    gulp.watch(['./src/i/**/*.*'], ['images']);
+    gulp.watch(['./src/styles/**/*.styl'], ['styles']);
+    gulp.watch(['./src/scripts/**/*.js'], ['scripts']);
+});
 
-gulp.task('default', ['rev', 'connect', 'watch']);
+gulp.task('build', ['clean'], function (cb) {
+    runSequence(['templates', 'images', 'styles', 'scripts'], cb);
+});
+
+gulp.task('default', ['build', 'connect', 'watch']);
