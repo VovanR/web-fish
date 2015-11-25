@@ -1,13 +1,28 @@
 {
   "name": "web-fish",
-  "version": "0.1.0",
-  "homepage": "https://github.com/VovanR/web-fish",
-  "authors": [
-    "VovanR <mail@vovanr.com>"
-  ],
   "description": "For new web apps",
-  "license": "MIT",
-  "private": true,
+  "version": "0.1.0",
+  "author": "Vladimir Rodkin <mail@vovanr.com>",
+  "keywords": [
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VovanR/web-fish"
+  },
+  "main": [
+    "dist"
+  ],
+  "ignore": [
+    "package.json",
+    "node_modules",
+    "**/.*",
+    "bower_components",
+    "src",
+    "test",
+    "tests",
+    "LICENSE",
+    "README.md"
+  ],
   "dependencies": {
     "html5-boilerplate": "~4.3.0",
     "jquery": "~1.9.1",
@@ -17,12 +32,7 @@
   "devDependencies": {
     "almond": "~0.3.0"
   },
-  "ignore": [
-    "**/.*",
-    "bower_components",
-    "node_modules",
-    "src",
-    "test",
-    "tests"
-  ]
+  "homepage": "https://github.com/VovanR/web-fish",
+  "license": "MIT",
+  "private": true
 }
