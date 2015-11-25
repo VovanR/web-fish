@@ -1,8 +1,10 @@
+$fontSize: 14px;
+
 .lol {
     display: inline-block;
     background: linear-gradient(to bottom, #fff, #000);
     color: green;
-    font-size: 14px;
+    font-size: $fontSize;
     opacity: 1;
     transition: opacity 1s ease;
     transform: translate(-1px, -1px);
