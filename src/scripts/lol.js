@@ -1,7 +1,5 @@
 define([], function () {
+	'use strict';
 
-    'use strict';
-
-    return 'Lol';
-
+	return 'Lol';
 });

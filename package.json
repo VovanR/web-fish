@@ -12,6 +12,14 @@
     "postinstall": "./node_modules/.bin/bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "xo": {
+    "globals": [
+      "define",
+      "require",
+      "window",
+      "document"
+    ]
+  },
   "devDependencies": {
     "bower": "",
     "gulp": "^3.8.11",
@@ -19,15 +27,11 @@
     "gulp-connect": "",
     "gulp-csso": "^1.0.0",
     "gulp-jade": "^1.0.0",
-    "gulp-jscs": "",
-    "gulp-jshint": "",
     "gulp-requirejs": "",
     "gulp-rev-append": "^0.1.6",
     "gulp-stylus": "^2.0.1",
     "gulp-uglify": "",
-    "jscs": "",
-    "jscs-jsdoc": "",
-    "jshint-stylish": "",
+    "gulp-xo": "^0.4.0",
     "rimraf": "^2.3.2",
     "run-sequence": "^1.0.2",
     "yargs": ""

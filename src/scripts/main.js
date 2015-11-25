@@ -1,13 +1,11 @@
 define([
-    'jquery',
-    'lol',
+	'jquery',
+	'lol'
 ], function (
-    $,
-    lol
+	$,
+	lol
 ) {
+	'use strict';
 
-    'use strict';
-
-    $(document.body).append($('<p />').text('My name is ' + lol));
-
+	$(document.body).append($('<p />').text('My name is ' + lol));
 });
