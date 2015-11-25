@@ -11,8 +11,8 @@ var xo = require('gulp-xo');
 var rjs = require('gulp-requirejs');
 var uglify = require('gulp-uglify');
 
-var stylus = require('gulp-stylus');
-var autoprefixer = require('gulp-autoprefixer');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer-core');
 var csso = require('gulp-csso');
 
 // Lint all modules:
@@ -46,15 +46,17 @@ gulp.task('images', function () {
 
 // Compile styles
 gulp.task('styles', function () {
-	gulp
-		.src([
-			'./src/styles/style.styl'
-		])
-		.pipe(stylus())
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions', 'ie >= 8'],
-			cascade: false
-		}))
+	return gulp.src('src/styles/style.css')
+		.pipe(postcss([
+			require('postcss-import'),
+			require('postcss-nested'),
+			require('postcss-simple-vars'),
+			require('postcss-clearfix'),
+			autoprefixer({
+				browsers: ['last 2 versions', 'ie >= 8'],
+				cascade: false
+			})
+		]))
 		.pipe(csso())
 		.pipe(gulp.dest('./build/css/'))
 		.pipe(connect.reload());
@@ -98,7 +100,7 @@ gulp.task('clean', function (cb) {
 gulp.task('watch', function () {
 	gulp.watch(['./src/index.jade'], ['templates']);
 	gulp.watch(['./src/i/**/*.*'], ['images']);
-	gulp.watch(['./src/styles/**/*.styl'], ['styles']);
+	gulp.watch(['./src/styles/**/*.css'], ['styles']);
 	gulp.watch(['./src/scripts/**/*.js'], ['scripts']);
 });
 
